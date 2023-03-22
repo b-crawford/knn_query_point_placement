@@ -4,7 +4,20 @@ import math
 import numpy as np
 
 
-def get_query_points(data_points, k_nearest_neighbours, x_bounds, y_bounds, size_of_grid_search):
+def get_query_points(
+    data_points, k_nearest_neighbours, x_bounds, y_bounds, size_of_grid_search
+):
+
+    # do some calculations to work out computational complexity
+    theoretical_min = math.ceil(len(data_points) / k_nearest_neighbours)
+    number_of_unique_neighbour_sets = math.comb(len(data_points), k_nearest_neighbours)
+    number_of_combinations_of_size_theoretical_min = math.comb(
+        number_of_unique_neighbour_sets, theoretical_min
+    )
+
+    assert (
+        number_of_combinations_of_size_theoretical_min < 10000
+    ), "Too many combinations to search, grid search not appropriate"
 
     tree = KDTree(data_points.to_numpy())
 
@@ -26,7 +39,9 @@ def get_query_points(data_points, k_nearest_neighbours, x_bounds, y_bounds, size
     indices_of_search_points = []
 
     for i, (x_point, y_point) in enumerate(search_grid):
-        new_neighbours = tree.query([x_point, y_point], k_nearest_neighbours)[1].tolist()
+        new_neighbours = tree.query([x_point, y_point], k_nearest_neighbours)[
+            1
+        ].tolist()
         if new_neighbours not in search_points:
             search_points += [new_neighbours]
             indices_of_search_points += [i]
@@ -36,8 +51,7 @@ def get_query_points(data_points, k_nearest_neighbours, x_bounds, y_bounds, size
     search_points = np.array(search_points)
     indices_of_search_points = np.array(indices_of_search_points)
 
-    # find the minimum number of points to cover the entire space
-    theoretical_min = math.ceil(len(data_points) / k_nearest_neighbours)
+    # find the maximum number of points to cover the entire space
     theoretical_max = len(data_points)
 
     # now work our way through all combinations returning the search point

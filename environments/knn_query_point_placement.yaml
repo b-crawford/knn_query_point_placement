@@ -1,0 +1,16 @@
+name: knn_query_point_placement
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pandas
+  - numpy
+  - scipy
+  - pulp
+  - matplotlib
+  - pip
+  - pip:
+    - keras
+    - pulp
+    - jupyter
+    - pre-commit
