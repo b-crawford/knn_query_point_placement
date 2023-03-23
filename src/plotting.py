@@ -5,7 +5,11 @@ from matplotlib.pyplot import cm
 
 
 def plot(
-    data_points: np.array, query_points: np.array = None, k_nearest_neighbours: int = None, figsize=(6, 6)
+    data_points: np.array,
+    query_points: np.array = None,
+    k_nearest_neighbours: int = None,
+    figsize=(6, 6),
+    query_point_labels=None,
 ):
 
     plt.figure(figsize=figsize)
@@ -13,7 +17,11 @@ def plot(
 
     if query_points is not None:
         plt.scatter(
-            query_points[:, 0], query_points[:, 1], c="r", label="Query points", marker="x"
+            query_points[:, 0],
+            query_points[:, 1],
+            c="r",
+            label="Query points",
+            marker="x",
         )
 
         # add lines from query points to data points
@@ -30,6 +38,10 @@ def plot(
                 )
 
         plt.legend()
+
+    if query_point_labels is not None:
+        for i, txt in enumerate(query_point_labels):
+            plt.annotate(txt, (query_points[i][0], query_points[i][1]))
 
 
 def plot_feasible_area(
