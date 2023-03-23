@@ -5,29 +5,31 @@ from matplotlib.pyplot import cm
 
 
 def plot(
-    query_points: np.array, data_points: np.array, k_nearest_neighbours, figsize=(6, 6)
+    data_points: np.array, query_points: np.array = None, k_nearest_neighbours: int = None, figsize=(6, 6)
 ):
 
     plt.figure(figsize=figsize)
     plt.scatter(data_points[:, 0], data_points[:, 1], c="b", label="Data points")
-    plt.scatter(
-        query_points[:, 0], query_points[:, 1], c="r", label="Query points", marker="x"
-    )
 
-    # add lines from query points to data points
-    tree = KDTree(data_points)
-    closest_points = tree.query(query_points, k_nearest_neighbours)
+    if query_points is not None:
+        plt.scatter(
+            query_points[:, 0], query_points[:, 1], c="r", label="Query points", marker="x"
+        )
 
-    for point, knn in zip(query_points, closest_points[1]):
-        for neighbour in knn:
-            plt.plot(
-                [point[0], data_points[neighbour][0]],
-                [point[1], data_points[neighbour][1]],
-                c="r",
-                linestyle="--",
-            )
+        # add lines from query points to data points
+        tree = KDTree(data_points)
+        closest_points = tree.query(query_points, k_nearest_neighbours)
 
-    plt.legend()
+        for point, knn in zip(query_points, closest_points[1]):
+            for neighbour in knn:
+                plt.plot(
+                    [point[0], data_points[neighbour][0]],
+                    [point[1], data_points[neighbour][1]],
+                    c="r",
+                    linestyle="--",
+                )
+
+        plt.legend()
 
 
 def plot_feasible_area(
