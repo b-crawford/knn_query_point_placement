@@ -2,7 +2,7 @@ import uuid
 import numpy as np
 from pulp import LpProblem, LpVariable
 from scipy.spatial import Voronoi
-import src.plotting as plot
+import knn_plotting as plot
 import matplotlib.pyplot as plt
 
 

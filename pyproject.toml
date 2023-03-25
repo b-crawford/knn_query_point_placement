@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0", "matplotlib", "scipy", "numpy", "pulp"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "knn_query_point_placement"
+version = "0.0.1"
+authors = [
+  { name="Billy Crawford", email="billy_crawford@hotmail.co.uk" },
+]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+[project.urls]
+"Homepage" = "https://github.com/b-crawford/knn_query_point_placement"
+"Bug Tracker" = "https://github.com/b-crawford/knn_query_point_placement/issues"
