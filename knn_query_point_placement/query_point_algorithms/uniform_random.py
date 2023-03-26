@@ -6,13 +6,13 @@ def sample_next_query_point(remaining_data_points):
     # sample a point from the remaining data points
     point = remaining_data_points.sample(1).iloc[0].to_dict()
 
-    return np.array([point['x'], point['y']])
+    return np.array([point["x"], point["y"]])
 
 
 # add points uniformly at random until we cover all our points
 def get_query_points(data_points, k_nearest_neighbours, verbose=False):
 
-    tree = KDTree(data_points[['x', 'y']].to_numpy())
+    tree = KDTree(data_points[["x", "y"]].to_numpy())
 
     # get the initial point
     intial_point = sample_next_query_point(data_points)
