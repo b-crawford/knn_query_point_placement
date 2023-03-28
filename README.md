@@ -47,5 +47,5 @@ The objective is to minimise $t$ and find $X = \\{x_1, ..., x_t\\}$ such that $\
 
 The question then becomes what can we do with this partition? We have transformed the problem from an infinite one (where a query point could be placed anywhere in 2d space, to a finite one, where for every point in each cell we will get an identical answer if we run KNN.
 
-An obvious first approach is to simply check all the combinations. The problem with this is it could be very time consuming. Say we ended up with $V$ voronoi cells of degree $k$. If we can find a placement of $m=\lceil n/k \rceil$ which would be the theoretical minimum number of query points if each query returned a distinct set of solutions, then this would invovle checking $\choose{V}{m}$ combinations, which could be very large. 
+An obvious first approach is to simply check all the combinations. The problem with this is it could be very time consuming. Say we ended up with $V$ voronoi cells of degree $k$. If we can find a placement of $m=\lceil n/k \rceil$ which would be the theoretical minimum number of query points if each query returned a distinct set of solutions, then this would invovle checking $V \choose m$ combinations, which could be very large. 
 
