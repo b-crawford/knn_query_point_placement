@@ -39,7 +39,7 @@ $$\lVert s_{x, 1} - x \rVert \leq \lVert s_{x, 2} - x \rVert \leq ... \leq \lVer
 
 Now define the set $T_{x,k} = \\{s_{x, (1)}, ..., s_{x, (k)} \\}$
 
-The objective is to minimise $t$ and find $X = \\{x_1, ..., x_t\\}$ such that $\union_{i} T_{x_i, k} = S$.
+The objective is to minimise $t$ and find $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k} = S$.
 
 ## Voronoi cells
 
