@@ -35,7 +35,7 @@ And let's say Google return not three but sixty closest restuarants. Now how do 
 
 Given a set of 'data points' $S = \{s_1, s_2, ..., s_n\}$ where $s_i \in \mathbb{R}^2$, an arbitrary point $x \in \mathbb{R}^2$, and a norm on $\mathbb{R}^2$ define a new ordering of $S$ such that 
 
-$$\norm{s_{x, (1)} - x} \leq \norm{s_{x, (2)} - x} \leq ... \leq \norm{s_{x, (n)} - x}$$
+$$\lVert s_{x, (1)} - x \rVert \leq \norm{s_{x, (2)} - x} \leq ... \leq \norm{s_{x, (n)} - x}$$
 
 Now define the set $T_{x,k} = \{s_{x, (1)}, ..., s_{x, (k)} \}$
 
