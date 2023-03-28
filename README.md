@@ -37,7 +37,7 @@ Given a set of data points $S = \\{ s_1, s_2, ..., s_n \\}$ where $s_i \in \math
 
 $$\lVert s_{x, 1} - x \rVert \leq \lVert s_{x, 2} - x \rVert \leq ... \leq \lVert s_{x, n} - x \rVert$$
 
-Now define the set $T_{x,k} = \\{s_{x, (1)}, ..., s_{x, (k)} \\}$
+Now define the set $T_{x,k} = \\{s_{x, 1}, ..., s_{x, k} \\}$
 
 The objective is to minimise $t$ and find $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k} = S$.
 
