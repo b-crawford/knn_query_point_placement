@@ -53,9 +53,9 @@ Now take $|S| = l$ as given, where $l=m \cdot k$. We are interested in the case 
 
 Consider each subset of $S$ of size $k$, of which there are $l+k\choose k$, call this number $h$. Label these sets $S_1,...,S_h$. For each of these there exists (by induction) a set $X_i$ such that $|X_i|=m$ and $\cup_{i} T_{x_i, k, S_i} = S_i$ for all $i$. 
 
-Consider one of these $X_i = \\{x_{i,1},...,x_{i,m}\\}$ want to find a point $x_{i, m+1}$ such that $T_{x_i, k, S_i} = T_{x_i, k, S}$ for all $i=1,...,m+1$. For $i=1,...m$ this condition states that we do not change the $k$ nearest neighbours of any point $x_1,...,x_m$ by adding the points in $S_{m+1}$. The case of $i=m+1$ states that the $k$ closest neighbours of our new point are exactly those missing from $\cup_{i \leq m} S_i$. 
+Consider one of these $X_i = \\{x_{i,1},...,x_{i,m}\\}$ want to find a point $x_{i, m+1}$ such that $T_{x_{i,j}, k, S_i} = T_{x_{i, j}, k, S}$ for all $j=1,...,m+1$. For $j=1,...m$ this condition states that we do not change the $k$ nearest neighbours of any point $x_{i,1},...,x_{i,m}$ by adding the points in $S_{i}$. The case of $j=m+1$ states that the $k$ closest neighbours of our new point are exactly those missing from $\cup_{j \leq m} S_j$. 
 
-For each $i=1,..,m$ define $U_i = \max_{y \in T_{x_i, k, S_i}}(\Vert x_i - y \Vert)$, i.e. each query point's furtherst nearest neighbour. 
+For each $j=1,..,m$ define $U_j = \max_{y \in T_{x_{i, m}, k, S_i}}(\Vert x_i - y \Vert)$, i.e. each query point's furtherst nearest neighbour. 
 
 We need to find a point such that $\frac{\Vert x_{m+1} - x_i \Vert}{2} \geq U_i \quad \forall i \leq m$ and $\Vert s_j - x_{m+1} \Vert \leq \Vert s_q  - x_{m+1} \Vert \quad \forall j \in S_{m+1}$ and $\forall q \in S - \cup_{i\leq m} S_i$.
 
