@@ -51,5 +51,9 @@ An obvious first approach is to simply check all the combinations. The problem w
 
 ## Minimum solution exists
 
-Theorem: Given a set $S$, $\exists$ a set $T$ such that 
+We prove constaints on the size of an optimum solution. 
+
+First, given a set of data points $S=\\{x_1,...,x_n\\}$ define the set $N(p, S, k)$ as the k-closest neighbours to $p$ in $S$.
+
+Theorem: Given a set $S$ and an integer $k$ where $|S| \text{mod} k = 0$, $\exists$ a set $T$ such that $\cup_{p \in T} N(p, S, k) = S$ and $ |T| = \frac{|T|}{k}$
 
