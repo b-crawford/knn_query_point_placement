@@ -39,7 +39,9 @@ $$\Vert s_{x, 1} - x \Vert \leq \Vert s_{x, 2} - x \Vert \leq ... \leq \Vert s_{
 
 Now define the set $T_{x, k, S} = \\{s_{x, 1}, ..., s_{x, k} \\}$, i.e. the $k$ nearest neighbours of the point $x$ in the set $S$.
 
-The objective is to minimise $t$ and find $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k, S} = S$.
+Define the concept of knn coverage for a set $T_{X, k, S} = \cup_{x \in X} T_{x, k, S}$
+
+The objective is to minimise $t$ and find $X = \\{x_1, ..., x_t\\}$ such that $=T_{X, k, S} = S$.
 
 ## Existence of an optimal solution
 
@@ -51,7 +53,7 @@ _Proof_: By induction, start with $|S|=k$. This is trivial as any point will hav
 
 Now take $|S| = l$ as given, where $l=m \cdot k$. We are interested in the case of $|S| = l+k $. 
 
-Consider each subset of $S$ of size $l$, of which there are $l+k\choose l$, call this number $h$. Label these sets $S_1,...,S_h$. For each of these there exists (by induction) a set $X_i$ such that $|X_i|=m$ and $\cup_{i} T_{x_i, k, S_i} = S_i$ for all $i$. 
+Consider each subset of $S$ of size $l$, of which there are $l+k\choose l$, call this number $h$. Label these sets $S_1,...,S_h$. For each of these there exists (by induction) a set $X_i$ such that $|X_i|=m$ and $\cup_{i,j} T_{X_i, k, S_i} = S_i$ for all $i$. 
 
 Consider one of these $X_i = \\{x_{i,1},...,x_{i,m}\\}$ want to find a point $x_{i, m+1}$ such that $T_{x_{i,j}, k, S_i} = T_{x_{i, j}, k, S}$ for all $j=1,...,m+1$. For $j=1,...m$ this condition states that we do not change the $k$ nearest neighbours of any point $x_{i,1},...,x_{i,m}$ by adding the points in $S-S_{i}$. The case of $j=m+1$ states that the $k$ closest neighbours of our new point are exactly those in $S-S_{i}$. 
 
@@ -61,6 +63,7 @@ We need to find a point such that $\frac{\Vert x_{i, m+1} - x_{i,j} \Vert}{2} \g
 
 Assume no such point exists. 
 
+Find an $i$ such that there exists a point for which $T_{X_i, k, S_i} = S - S_i $
 
 
 ## Voronoi cells
