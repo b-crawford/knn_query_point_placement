@@ -35,7 +35,7 @@ And let's say Google return not three but sixty closest restuarants. Now how do 
 
 Given a set of data points $S = \\{ s_1, s_2, ..., s_n \\}$ where $s_i \in \mathbb{R}^2$, an arbitrary point $x \in \mathbb{R}^2$, and a norm on $\mathbb{R}^2$ define a new ordering of $S$ such that 
 
-$$\lVert s_{x, 1} - x \rVert \leq \lVert s_{x, 2} - x \rVert \leq ... \leq \lVert s_{x, n} - x \rVert$$
+$$\Vert s_{x, 1} - x \Vert \leq \Vert s_{x, 2} - x \Vert \leq ... \leq \Vert s_{x, n} - x \Vert$$
 
 Now define the set $T_{x,k} = \\{s_{x, 1}, ..., s_{x, k} \\}$
 
@@ -55,5 +55,12 @@ We prove constaints on the size of an optimum solution.
 
 First, given a set of data points $S=\\{x_1,...,x_n\\}$ define the set $N(p, S, k)$ as the k-closest neighbours to $p$ in $S$.
 
-Theorem: Given a set $S$ and an integer $k$ where $|S| \text{mod} k = 0$, $\exists$ a set $T$ such that $\cup_{p \in T} N(p, S, k) = S$ and $|T| = \frac{|T|}{k}$
+_Theorem_: Given a set $S$ and an integer $k$ where $|S| \text{ mod } k = 0$, $\exists$ a set $T$ such that $\cup_{p \in T} N(p, S, k) = S$ and $|T| = \frac{|T|}{k}$.
+
+_Proof_: By induction, start with $|S|=k$. This is trivial as any point will have all points in $S$ as its $k$ nearest neighbours. 
+
+Now take $|S| = l$ as given, where $l=m \cdot k$. We are interested in the case of $|S| = l+k $. 
+
+Consider each subset of $S$ of size $k$, of which there are $h = {l+k}\choose k$. Label these $D_1,...,D_h$. For each of these there exists (by induction) a set $Y_i$ such that $|Y_i|=m$ and $\cup_{p \in Y_i} N(p, D_i, k) = D_i$ for all $i$. 
+
 
