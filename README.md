@@ -57,7 +57,7 @@ We want to find a point $x_{m+1}$ such that $T_{x_i, k, S_i} = T_{x_i, k, S}$ fo
 
 For each $i=1,..,m$ define $U_i = \max_{y \in T_{x_i, k, S_i}}(\Vert x_i - y \Vert)$, i.e. each query point's furtherst nearest neighbour. 
 
-We need to find a point such that $\frac{\Vert x_{m+1} - x_i \Vert}{2} \geq U_i \hspace{2} \forall i$
+We need to find a point such that $\frac{\Vert x_{m+1} - x_i \Vert}{2} \geq U_i \! \forall i$
 
 
 ## Voronoi cells
