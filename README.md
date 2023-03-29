@@ -57,7 +57,7 @@ Consider one of these $X_i = \\{x_{i,1},...,x_{i,m}\\}$ want to find a point $x_
 
 For each $j=1,..,m$ define $U_j = \max_{y \in T_{x_{i, j}, k, S_i}}(\Vert x_{i,j} - y \Vert)$, i.e. each query point's furtherst nearest neighbour. 
 
-We need to find a point such that $\frac{\Vert x_{m+1} - x_i \Vert}{2} \geq U_i \quad \forall i \leq m$ and $\Vert s_j - x_{m+1} \Vert \leq \Vert s_q  - x_{m+1} \Vert \quad \forall j \in S_{m+1}$ and $\forall q \in S - \cup_{i\leq m} S_i$.
+We need to find a point such that $\frac{\Vert x_{i, m+1} - x_{i,j} \Vert}{2} \geq U_j \quad \forall j \leq m$ and $\Vert s_p - x_{i, m+1} \Vert \leq \Vert s_q  - x_{i, m+1} \Vert \quad \forall p \in S_{i}$ and $\forall q \in S - S_i$.
 
 Suppose no such point exists. Then $\forall i \ x_{m+1}
 
