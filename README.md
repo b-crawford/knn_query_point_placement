@@ -41,7 +41,7 @@ Now define the set $T_{x, k, S} = \\{s_{x, 1}, ..., s_{x, k} \\}$
 
 The objective is to minimise $t$ and find $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k, S} = S$.
 
-## Existance of an optimum solution.
+## Existance of an optimal solution
 
 Lets first try and prove the existance of an optimal solution, against which to meausure our algorithm. 
 
