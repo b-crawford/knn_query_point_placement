@@ -43,7 +43,7 @@ The objective is to minimise $t$ and find $X = \\{x_1, ..., x_t\\}$ such that $\
 
 ## Existance of an optimal solution
 
-Lets first try and prove the existance of an optimal solution, against which to meausure our algorithm. 
+Lets we try to prove the existance of an optimal solution, against which to meausure our algorithm. 
 
 _Theorem_: Given a set $S$ and an integer $k$ where $|S| \text{ mod } k = 0$, $\exists$ a set $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k, S} = S$ and $|X| = \frac{|S|}{k}$.
 
