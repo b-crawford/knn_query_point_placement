@@ -51,7 +51,7 @@ _Proof_: By induction, start with $|S|=k$. This is trivial as any point will hav
 
 Now take $|S| = l$ as given, where $l=m \cdot k$. We are interested in the case of $|S| = l+k $. 
 
-Consider each subset of $S$ of size $k$, of which there are $h = {l+k}\choose k$. Label these $D_1,...,D_h$. For each of these there exists (by induction) a set $X_i$ such that $|X_i|=m$ and $\cup_{i} T_{x_i, k} = S$ for all $i$. 
+Consider each subset of $S$ of size $k$, of which there are $h =$$l+k\choose k$. Label these $D_1,...,D_h$. For each of these there exists (by induction) a set $X_i$ such that $|X_i|=m$ and $\cup_{i} T_{x_i, k} = S$ for all $i$. 
 
 
 ## Voronoi cells
