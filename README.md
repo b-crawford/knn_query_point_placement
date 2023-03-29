@@ -55,7 +55,7 @@ Consider each subset of $S$ of size $k$, of which there are $l+k\choose k$, call
 
 We want to find a point $x_{m+1}$ such that $T_{x_i, k, S_i} = T_{x_i, k, S}$ for all $i=1,...,m+1$. For $i=1,...m$ this condition states that we do not change the $k$ nearest neighbours of any point $x_1,...,x_m$ by adding the points in $S_{m+1}$. The case of $i=m+1$ states that the $k$ closest neighbours of our new point are exactly those missing from $\cup_{i \leq m} S_i$. 
 
-For each $i=1,..,m$ define $U = \text{max}_{y \in T_{x_i, k, S_i}}(\Vert x_i - y \Vert)$, i.e. each query points furtherst nearest neighbour. 
+For each $i=1,..,m$ define $U = \max_{y \in T_{x_i, k, S_i}}(\Vert x_i - y \Vert)$, i.e. each query points furtherst nearest neighbour. 
 
 
 ## Voronoi cells
