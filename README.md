@@ -49,3 +49,7 @@ The question then becomes what can we do with this partition? We have transforme
 
 An obvious first approach is to simply check all the combinations. The problem with this is it could be very time consuming. Say we ended up with $V$ voronoi cells of degree $k$. If we can find a placement of $m=\lceil n/k \rceil$ (which would be the theoretical minimum number of query points if each query returned a distinct set of solutions) then this would involve checking $V \choose m$ combinations, which will be prohibitively large in most settings. 
 
+## Minimum solution exists
+
+Theorem: Given a set $S$, $\exists$ a set $T$ such that 
+
