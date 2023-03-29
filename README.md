@@ -52,6 +52,11 @@ We next try to prove the existance of an optimal solution, against which to meau
 
 ## Existence of an optimal solution
 
+
+
+
+## Existence of an optimal solution
+
 _Theorem_: Given a set $S$ and an integer $k$ where $|S| \text{ mod } k = 0$, $\exists$ a set $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k, S} = S$ and $|X| = \frac{|S|}{k}$.
 
 _Proof_: By induction, start with $|S|=k$. This is trivial as any point will have all points in $S$ as its $k$ nearest neighbours. 
