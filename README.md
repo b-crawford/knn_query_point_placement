@@ -37,7 +37,7 @@ Given a set of data points $S = \\{ s_1, s_2, ..., s_n \\}$ where $s_i \in \math
 
 $$\Vert s_{x, 1} - x \Vert \leq \Vert s_{x, 2} - x \Vert \leq ... \leq \Vert s_{x, n} - x \Vert$$
 
-Now define the set $T_{x, k, S} = \\{s_{x, 1}, ..., s_{x, k} \\}$
+Now define the set $T_{x, k, S} = \\{s_{x, 1}, ..., s_{x, k} \\}$, i.e. the $k$ nearest neighbours of the point $x$ in the set $S$.
 
 The objective is to minimise $t$ and find $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k, S} = S$.
 
