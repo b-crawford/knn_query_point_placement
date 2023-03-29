@@ -37,21 +37,23 @@ Given a set of data points $S = \\{ s_1, s_2, ..., s_n \\}$ where $s_i \in \math
 
 $$\Vert s_{x, 1} - x \Vert \leq \Vert s_{x, 2} - x \Vert \leq ... \leq \Vert s_{x, n} - x \Vert$$
 
-Now define the set $T_{x,k} = \\{s_{x, 1}, ..., s_{x, k} \\}$
+Now define the set $T_{x, k, S} = \\{s_{x, 1}, ..., s_{x, k} \\}$
 
-The objective is to minimise $t$ and find $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k} = S$.
+The objective is to minimise $t$ and find $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k, S} = S$.
 
 ## Existance of an optimum solution.
 
 Lets first try and prove the existance of an optimal solution, against which to meausure our algorithm. 
 
-_Theorem_: Given a set $S$ and an integer $k$ where $|S| \text{ mod } k = 0$, $\exists$ a set $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k} = S$ and $|X| = \frac{|S|}{k}$.
+_Theorem_: Given a set $S$ and an integer $k$ where $|S| \text{ mod } k = 0$, $\exists$ a set $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k, S} = S$ and $|X| = \frac{|S|}{k}$.
 
 _Proof_: By induction, start with $|S|=k$. This is trivial as any point will have all points in $S$ as its $k$ nearest neighbours. 
 
 Now take $|S| = l$ as given, where $l=m \cdot k$. We are interested in the case of $|S| = l+k $. 
 
-Consider each subset of $S$ of size $k$, of which there are $h =$$l+k\choose k$. Label these $D_1,...,D_h$. For each of these there exists (by induction) a set $X_i$ such that $|X_i|=m$ and $\cup_{i} T_{x_i, k} = S$ for all $i$. 
+Consider each subset of $S$ of size $k$, of which there are $l+k\choose k$, call this number $h$. Label these sets $S_1,...,S_h$. For each of these there exists (by induction) a set $X_i$ such that $|X_i|=m$ and $\cup_{i} T_{x_i, k, S_i} = S_i$ for all $i$. 
+
+We want to find a point $x_{m+1}$ and an index $j$ such that $S_j \cup T_{x_m, k, S\S_j} = S$ and $T_{x_m, k, S_i} = T_{x_m, k, S}$ for all $i \neq j$.
 
 
 ## Voronoi cells
