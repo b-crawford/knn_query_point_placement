@@ -45,7 +45,7 @@ The objective is to minimise $t$ and find $X = \\{x_1, ..., x_t\\}$ such that $\
 
 Lets first try and prove the existance of an optimal solution, against which to meausure our algorithm. 
 
-_Theorem_: Given a set $S$ and an integer $k$ where $|S| \text{ mod } k = 0$, $\exists$ a set $X$ such that $\cup_{i} T_{x_i, k} = S$ and $|X| = \frac{|X|}{k}$.
+_Theorem_: Given a set $S$ and an integer $k$ where $|S| \text{ mod } k = 0$, $\exists$ a set $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k} = S$ and $|X| = \frac{|S|}{k}$.
 
 _Proof_: By induction, start with $|S|=k$. This is trivial as any point will have all points in $S$ as its $k$ nearest neighbours. 
 
