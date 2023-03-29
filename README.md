@@ -43,9 +43,14 @@ Define the concept of knn coverage for a set $T_{X, k, S} = \cup_{x \in X} T_{x,
 
 The objective is to minimise $t$ and find $X = \\{x_1, ..., x_t\\}$ such that $=T_{X, k, S} = S$.
 
-## Existence of an optimal solution
+We next try to prove the existance of an optimal solution, against which to meausure our algorithm. For that we will need the concept of a Voronoi cell.
 
-Lets we try to prove the existance of an optimal solution, against which to meausure our algorithm. 
+## Voronoi cells
+
+[Voronoi diagrams](https://en.wikipedia.org/wiki/Voronoi_diagram) are a way to parition the space into areas such that the KNN algorithm will return the same answer for every point in the cell. They are most usually seen for $k=1$ i.e. each point in a cell has the same nearest neighbour. They can however be extended to $k$ nearest neighbours. Now each point in the cell has the same $k$ nearest neighbours. In our above notation a Voronoi cell of order $k$ for a subset of points $P \subset S $ (where $|P|=k$) is defined as $V_{S, P} = \\{x : T_{x, k, S} = P \\}$
+
+
+## Existence of an optimal solution
 
 _Theorem_: Given a set $S$ and an integer $k$ where $|S| \text{ mod } k = 0$, $\exists$ a set $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k, S} = S$ and $|X| = \frac{|S|}{k}$.
 
@@ -61,18 +66,9 @@ For each $j=1,..,m$ define $U_j = \max_{y \in T_{x_{i, j}, k, S_i}}(\Vert x_{i,j
 
 We need to find a point such that $\frac{\Vert x_{i, m+1} - x_{i,j} \Vert}{2} \geq U_j \quad \forall j \leq m$ and $\Vert p - x_{i, m+1} \Vert \leq \Vert q  - x_{i, m+1} \Vert \quad \forall p \in S-S_{i}$ and $\forall q \in S$.
 
-Assume no such point exists. 
 
-Find an $i$ such that there exists a point for which $T_{X_i, k, S_i} = S - S_i $
+## Finding an optimal solution
 
-
-## Voronoi cells
-
-[Voronoi diagrams](https://en.wikipedia.org/wiki/Voronoi_diagram) are a way to parition the space into areas such that the KNN algorithm will return the same answer for every point in the cell. They are most usually seen for $k=1$ i.e. each point in a cell has the same nearest neighbour. They can however be extended to $k$ nearest neighbours. Now each point in the cell has the same $k$ nearest neighbours. An implementation of this can be found in `knn_query_point_placement/knn_query_point_placement/query_point_algorithms/nth_degree_voronoi.py`.
-
-The question then becomes what can we do with this partition? We have transformed the problem from an infinite one (where a query point could be placed anywhere in 2d space, to a finite one, where for every point in each cell we will get an identical answer if we run KNN.
-
-An obvious first approach is to simply check all the combinations. The problem with this is it could be very time consuming. Say we ended up with $V$ voronoi cells of degree $k$. If we can find a placement of $m=\lceil n/k \rceil$ (which would be the theoretical minimum number of query points if each query returned a distinct set of solutions) then this would involve checking $V \choose m$ combinations, which will be prohibitively large in most settings. 
 
 
 
