@@ -41,6 +41,19 @@ Now define the set $T_{x,k} = \\{s_{x, 1}, ..., s_{x, k} \\}$
 
 The objective is to minimise $t$ and find $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k} = S$.
 
+## Existance of an optimum solution.
+
+Lets first try and prove the existance of an optimal solution, against which to meausure our algorithm. 
+
+_Theorem_: Given a set $S$ and an integer $k$ where $|S| \text{ mod } k = 0$, $\exists$ a set $X$ such that $\cup_{i} T_{x_i, k} = S$ and $|X| = \frac{|X|}{k}$.
+
+_Proof_: By induction, start with $|S|=k$. This is trivial as any point will have all points in $S$ as its $k$ nearest neighbours. 
+
+Now take $|S| = l$ as given, where $l=m \cdot k$. We are interested in the case of $|S| = l+k $. 
+
+Consider each subset of $S$ of size $k$, of which there are $h = {l+k}\choose k$. Label these $D_1,...,D_h$. For each of these there exists (by induction) a set $X_i$ such that $|X_i|=m$ and $\cup_{i} T_{x_i, k} = S$ for all $i$. 
+
+
 ## Voronoi cells
 
 [Voronoi diagrams](https://en.wikipedia.org/wiki/Voronoi_diagram) are a way to parition the space into areas such that the KNN algorithm will return the same answer for every point in the cell. They are most usually seen for $k=1$ i.e. each point in a cell has the same nearest neighbour. They can however be extended to $k$ nearest neighbours. Now each point in the cell has the same $k$ nearest neighbours. An implementation of this can be found in `knn_query_point_placement/knn_query_point_placement/query_point_algorithms/nth_degree_voronoi.py`.
@@ -49,18 +62,5 @@ The question then becomes what can we do with this partition? We have transforme
 
 An obvious first approach is to simply check all the combinations. The problem with this is it could be very time consuming. Say we ended up with $V$ voronoi cells of degree $k$. If we can find a placement of $m=\lceil n/k \rceil$ (which would be the theoretical minimum number of query points if each query returned a distinct set of solutions) then this would involve checking $V \choose m$ combinations, which will be prohibitively large in most settings. 
 
-## Minimum solution exists
-
-We prove constaints on the size of an optimum solution. 
-
-First, given a set of data points $S=\\{x_1,...,x_n\\}$ define the set $N(p, S, k)$ as the k-closest neighbours to $p$ in $S$.
-
-_Theorem_: Given a set $S$ and an integer $k$ where $|S| \text{ mod } k = 0$, $\exists$ a set $T$ such that $\cup_{p \in T} N(p, S, k) = S$ and $|T| = \frac{|T|}{k}$.
-
-_Proof_: By induction, start with $|S|=k$. This is trivial as any point will have all points in $S$ as its $k$ nearest neighbours. 
-
-Now take $|S| = l$ as given, where $l=m \cdot k$. We are interested in the case of $|S| = l+k $. 
-
-Consider each subset of $S$ of size $k$, of which there are $h = {l+k}\choose k$. Label these $D_1,...,D_h$. For each of these there exists (by induction) a set $Y_i$ such that $|Y_i|=m$ and $\cup_{p \in Y_i} N(p, D_i, k) = D_i$ for all $i$. 
 
 
