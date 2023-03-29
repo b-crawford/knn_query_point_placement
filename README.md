@@ -53,7 +53,7 @@ Now take $|S| = l$ as given, where $l=m \cdot k$. We are interested in the case 
 
 Consider each subset of $S$ of size $k$, of which there are $l+k\choose k$, call this number $h$. Label these sets $S_1,...,S_h$. For each of these there exists (by induction) a set $X_i$ such that $|X_i|=m$ and $\cup_{i} T_{x_i, k, S_i} = S_i$ for all $i$. 
 
-We want to find a point $x_{m+1}$ and an index $j$ such that $S_j \cup T_{x_m, k, S - S_j} = S$ and $T_{x_i, k, S_i} = T_{x_i, k, S}$ for all $i \neq j$. Here we are using the notation $S-S_j$ to describe the set difference between $S$ and $S_j$. The first condition states that the $k$ closest neighbours of our new point are exactly those missing from $S_j$. The second condition states that we do not change the $k$ nearest neighbours of any point $x_1,...,x_m$.
+We want to find a point $x_{m+1}$ such that $T_{x_i, k, S_i} = T_{x_i, k, S}$ for all $i=1,...,m+1$. For $i=1,...m$ this condition states that we do not change the $k$ nearest neighbours of any point $x_1,...,x_m$ by adding the points in $S_{m+1}$. The case of $i=m+1$ states that the $k$ closest neighbours of our new point are exactly those missing from $\cup{i \leq m} S_i$. 
 
 
 ## Voronoi cells
