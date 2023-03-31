@@ -13,11 +13,11 @@ For now we will ignore the complexity that Google may have more, less, or just d
 
 Let's say you had 9 restaurants arranged in space like so:
 
-![nine_restaurants.png]('assets/readme_image_1.png')
+![nine_restaurants.png](/assets/readme_image_1.png)
 
 Now, let's say that $k=3$, so each query to the Google Places API will return the three closest restaurants to the query point. Looking at the map of restaurants, you, as an intelligent github user (who btw makes good decisions about who to take out for dinner) can easily choose where to place the points, for example, like so:
 
-![nine_restaurants_with_query_points.png]('assets/readme_image_2.png')
+![nine_restaurants_with_query_points.png](/assets/readme_image_2.png)
 
 Where we have linked the query points with the returned restaurants with a dashed line.
 
@@ -27,7 +27,7 @@ You are done, choose the best restaurant and treat that user to their well-deser
 
 However, life is not always so tasty. What about if you had 1000 restuarants, like so:
 
-![thousand_restaurants.png]('assets/readme_image_3.png')
+![thousand_restaurants.png](/assets/readme_image_3.png)
 
 And let's say Google return not three but sixty closest restuarants. Now how do you place your query points? The purpose of this project is to provide a method to do so algorithmically.
 
