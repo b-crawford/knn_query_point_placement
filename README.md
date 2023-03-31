@@ -47,7 +47,7 @@ We next try to prove the existance of an optimal solution, against which to meau
 
 ## Voronoi cells
 
-[Voronoi diagrams](https://en.wikipedia.org/wiki/Voronoi_diagram) are a way to parition the space into areas such that the KNN algorithm will return the same answer for every point in the cell. They are most usually seen for $k=1$ i.e. each point in a cell has the same nearest neighbour. They can however be extended to $k$ nearest neighbours. Now each point in the cell has the same $k$ nearest neighbours. In our above notation a Voronoi cell of order $k$ for a subset of points $P \subset S $ (where $|P|=k$) is defined as $V_{S, P} = \\{x : T_{x, k, S} = P \\}$
+[Voronoi diagrams](https://en.wikipedia.org/wiki/Voronoi_diagram) are a way to parition the space into areas such that the KNN algorithm will return the same answer for every point in the cell. They are most usually seen for $k=1$ i.e. each point in a cell has the same nearest neighbour. They can however be extended to $k$ nearest neighbours. Now each point in the cell has the same $k$ nearest neighbours. In our above notation a Voronoi cell of order $k$ for a subset of points $P \subset S$ (where $|P|=k$) is defined as $V_{S, P} = \\{x : T_{x, k, S} = P \\}$
 
 
 ## Solving the problem
