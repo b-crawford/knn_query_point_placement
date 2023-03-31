@@ -43,6 +43,10 @@ def plot(
         for i, txt in enumerate(query_point_labels):
             plt.annotate(txt, (query_points[i][0], query_points[i][1]))
 
+    # equalise the axis sizes to make inspection of closest points easier
+    ax = plt.gca()
+    ax.set_aspect('equal', adjustable='box')
+
 
 def plot_feasible_area(
     A, b, x_bounds, y_bounds, figsize=(12, 3), save_to=None, grid_size=300

@@ -13,11 +13,11 @@ For now we will ignore the complexity that Google may have more, less, or just d
 
 Let's say you had 9 restaurants arranged in space like so:
 
-[IMAGE]
+![nine_restaurants.png]('assets/readme_image_1.png')
 
 Now, let's say that $k=3$, so each query to the Google Places API will return the three closest restaurants to the query point. Looking at the map of restaurants, you, as an intelligent github user (who btw makes good decisions about who to take out for dinner) can easily choose where to place the points, for example, like so:
 
-[IMAGE2]
+![nine_restaurants_with_query_points.png]('assets/readme_image_2.png')
 
 Where we have linked the query points with the returned restaurants with a dashed line.
 
@@ -27,7 +27,7 @@ You are done, choose the best restaurant and treat that user to their well-deser
 
 However, life is not always so tasty. What about if you had 1000 restuarants, like so:
 
-[IMAGE]
+![thousand_restaurants.png]('assets/readme_image_3.png')
 
 And let's say Google return not three but sixty closest restuarants. Now how do you place your query points? The purpose of this project is to provide a method to do so algorithmically.
 
@@ -50,30 +50,6 @@ We next try to prove the existance of an optimal solution, against which to meau
 [Voronoi diagrams](https://en.wikipedia.org/wiki/Voronoi_diagram) are a way to parition the space into areas such that the KNN algorithm will return the same answer for every point in the cell. They are most usually seen for $k=1$ i.e. each point in a cell has the same nearest neighbour. They can however be extended to $k$ nearest neighbours. Now each point in the cell has the same $k$ nearest neighbours. In our above notation a Voronoi cell of order $k$ for a subset of points $P \subset S $ (where $|P|=k$) is defined as $V_{S, P} = \\{x : T_{x, k, S} = P \\}$
 
 
-## Existence of an optimal solution
+## Solving the problem
 
-
-
-
-## Existence of an optimal solution
-
-_Theorem_: Given a set $S$ and an integer $k$ where $|S| \text{ mod } k = 0$, $\exists$ a set $X = \\{x_1, ..., x_t\\}$ such that $\cup_{i} T_{x_i, k, S} = S$ and $|X| = \frac{|S|}{k}$.
-
-_Proof_: By induction, start with $|S|=k$. This is trivial as any point will have all points in $S$ as its $k$ nearest neighbours. 
-
-Now take $|S| = l$ as given, where $l=m \cdot k$. We are interested in the case of $|S| = l+k $. 
-
-Consider each subset of $S$ of size $l$, of which there are $l+k\choose l$, call this number $h$. Label these sets $S_1,...,S_h$. For each of these there exists (by induction) a set $X_i$ such that $|X_i|=m$ and $\cup_{i,j} T_{X_i, k, S_i} = S_i$ for all $i$. 
-
-Consider one of these $X_i = \\{x_{i,1},...,x_{i,m}\\}$ want to find a point $x_{i, m+1}$ such that $T_{x_{i,j}, k, S_i} = T_{x_{i, j}, k, S}$ for all $j=1,...,m+1$. For $j=1,...m$ this condition states that we do not change the $k$ nearest neighbours of any point $x_{i,1},...,x_{i,m}$ by adding the points in $S-S_{i}$. The case of $j=m+1$ states that the $k$ closest neighbours of our new point are exactly those in $S-S_{i}$. 
-
-For each $j=1,..,m$ define $U_j = \max_{y \in T_{x_{i, j}, k, S_i}}(\Vert x_{i,j} - y \Vert)$, i.e. each query point's furtherst nearest neighbour. 
-
-We need to find a point such that $\frac{\Vert x_{i, m+1} - x_{i,j} \Vert}{2} \geq U_j \quad \forall j \leq m$ and $\Vert p - x_{i, m+1} \Vert \leq \Vert q  - x_{i, m+1} \Vert \quad \forall p \in S-S_{i}$ and $\forall q \in S$.
-
-
-## Finding an optimal solution
-
-
-
-
+Given the Voronoi cells this problem becomes the [set cover problem](https://en.wikipedia.org/wiki/Set_cover_problem). Our original set of data points is the universe and the neighbours covered by the query points are the subsets. This problem is NP-hard. Therefore we provide the greedy algorithm and other approaches designed to find aproximate solutions. 

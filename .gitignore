@@ -133,8 +133,7 @@ git_setup.sh
 .Rproj.user
 
 # exclude data from source control by default
-/data/
+data/
 
-# specific exceptions for app config and tests
-!prod/dashboard/app_data/configuration/*
-!prod/dashboard/app_data/test_data/*
+# include everything in assets folder
+!assets/*
