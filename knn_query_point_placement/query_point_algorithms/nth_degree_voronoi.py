@@ -1,9 +1,16 @@
 import uuid
 import numpy as np
+import os
+import sys
+import pulp
 from pulp import LpProblem, LpVariable
 from scipy.spatial import Voronoi
-from knn_query_point_placement import knn_plotting as plot
 import matplotlib.pyplot as plt
+
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(root_dir)
+from query_point_algorithms import nth_degree_voronoi
+import knn_plotting as plot
 
 
 # functions to extract information from scipy.spatial.Voronoi on individual cells
@@ -110,7 +117,7 @@ class VoronoiCell:
             prob += self.A[i, 0] * x + self.A[i, 1] * y >= self.b[i]
 
         # solve the problem
-        prob.solve()
+        prob.solve(pulp.PULP_CBC_CMD(msg=False))
 
         # check if the problem is infeasible
         if prob.status == -1:
